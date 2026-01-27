@@ -36,7 +36,7 @@ import ImportDataModal from "./ImportDataModal";
 import DataPreviewModal from "./DataPreviewModal";
 import EditItemModal from "./EditItemModal";
 import NotificationPanel from "./NotificationPanel";
-import vizlyLogo from 'figma:asset/96bf4512efe4ad439d153f2c27b017ec43a256da.png';
+import vizlyLogo from '../assets/logo.png';
 
 interface WorkspaceScreenProps {
   onNavigate: (
