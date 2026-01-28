@@ -94,7 +94,7 @@ export default function ForgotPassword({ onComplete, onNavigateToLogin, darkMode
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
+    <div className={`min-h-screen flex items-center justify-center p-4 bg-[#F8FAFC] dark:bg-[#0A192F] relative overflow-hidden transition-colors duration-500 ${darkMode ? 'dark' : ''}`}>
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-20 w-72 h-72 bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl animate-pulse"></div>
