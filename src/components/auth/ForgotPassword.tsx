@@ -125,17 +125,16 @@ export default function ForgotPassword({ onComplete, onNavigateToLogin, darkMode
                 <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
               </div>
             </div>
-            <h1 className="text-gray-900 dark:text-white mb-2 flex items-center justify-center gap-2">
+            <h1 className="text-gray-900 dark:text-white mb-1 flex items-center justify-center gap-2 font-bold text-2xl">
               {step === 1 && (
                 <>
                   Reset Password
-                  <KeyRound className="w-5 h-5 text-blue-500 animate-pulse" />
                 </>
               )}
               {step === 2 && (
                 <>
                   Verify Code
-                  <Shield className="w-5 h-5 text-purple-500 animate-pulse" />
+                  <Shield className="w-5 h-5 text-blue-500 animate-pulse" />
                 </>
               )}
               {step === 3 && (
@@ -154,9 +153,9 @@ export default function ForgotPassword({ onComplete, onNavigateToLogin, darkMode
 
           {/* Progress Indicator */}
           <div className="mb-8">
-            <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center justify-between mb-2">
               {[1, 2, 3].map((s) => (
-                <div key={s} className="flex items-center">
+                <div key={s} className="flex items-center justify-center border">
                   <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
                     s < step ? 'bg-gradient-to-br from-green-500 to-green-600 shadow-lg shadow-green-500/30' : s === step ? 'bg-gradient-to-br from-blue-600 to-purple-600 shadow-lg shadow-purple-500/30 scale-110' : 'bg-gray-200 dark:bg-gray-700'
                   }`}>
@@ -169,7 +168,7 @@ export default function ForgotPassword({ onComplete, onNavigateToLogin, darkMode
                     )}
                   </div>
                   {s < 3 && (
-                    <div className={`w-16 h-1 mx-2 rounded-full transition-all duration-500 ${
+                    <div className={`w-24 h-1 mx-2 rounded-full transition-all duration-500 ${
                       s < step ? 'bg-gradient-to-r from-green-500 to-green-600' : 'bg-gray-200 dark:bg-gray-700'
                     }`}></div>
                   )}

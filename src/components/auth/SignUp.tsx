@@ -102,9 +102,8 @@ export default function SignUp({ onSignUp, onNavigateToLogin, darkMode, onToggle
                 <div className="absolute -inset-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
               </div>
             </div>
-            <h1 className="text-gray-900 dark:text-white mb-2 flex items-center justify-center gap-2">
+            <h1 className="text-gray-900 dark:text-white mb-1 flex items-center justify-center gap-2 font-bold">
               Create Account
-              <Zap className="w-5 h-5 text-purple-500 animate-pulse" />
             </h1>
             <p className="text-gray-600 dark:text-gray-400">Join Vizly today</p>
           </div>
@@ -266,20 +265,20 @@ export default function SignUp({ onSignUp, onNavigateToLogin, darkMode, onToggle
             </div>
 
             {/* Terms & Conditions */}
-            <div className="flex items-start space-x-2 p-3 bg-gray-50 dark:bg-gray-900/50 rounded-xl border border-gray-200 dark:border-gray-700">
+            <div className="flex items-center space-x-2 p-3 bg-gray-50 dark:bg-gray-900/50 rounded-xl border border-gray-200 dark:border-gray-700">
               <input
                 type="checkbox"
                 id="terms"
-                className="mt-0.5 rounded text-purple-600 focus:ring-purple-500 focus:ring-offset-0 cursor-pointer transition-transform hover:scale-110"
+                className=" mt-0.5 rounded text-purple-600 focus:ring-purple-500 focus:ring-offset-0 cursor-pointer transition-transform hover:scale-110"
                 required
               />
               <label htmlFor="terms" className="text-sm text-gray-600 dark:text-gray-400 cursor-pointer">
                 I agree to the{' '}
-                <button type="button" className="text-purple-600 dark:text-purple-400 hover:underline font-medium">
+                <button type="button" className="text-blue-600 dark:text-blue-600 hover:underline font-medium">
                   Terms of Service
                 </button>{' '}
                 and{' '}
-                <button type="button" className="text-purple-600 dark:text-purple-400 hover:underline font-medium">
+                <button type="button" className="text-blue-600 dark:text-blue-600 hover:underline font-medium">
                   Privacy Policy
                 </button>
               </label>
@@ -288,10 +287,10 @@ export default function SignUp({ onSignUp, onNavigateToLogin, darkMode, onToggle
             {/* Create Account Button */}
             <button
               type="submit"
-              className="w-full py-3.5 bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-size-200 bg-pos-0 hover:bg-pos-100 text-white rounded-xl font-medium shadow-lg shadow-purple-500/30 hover:shadow-xl hover:shadow-pink-500/40 hover:scale-[1.02] transition-all duration-300 relative overflow-hidden group"
+              className="w-full py-3.5 bg-gradient-to-r from-blue-600 via-blue-600 to-blue-600 bg-size-200 bg-pos-0 hover:bg-pos-100 text-white rounded-xl font-medium hover:scale-[1.02] transition-all duration-300 relative overflow-hidden group"
             >
               <span className="relative z-10">Create Account</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>
           </form>
 
@@ -301,7 +300,7 @@ export default function SignUp({ onSignUp, onNavigateToLogin, darkMode, onToggle
               Already have an account?{' '}
               <button
                 onClick={onNavigateToLogin}
-                className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-purple-600 dark:after:bg-purple-400 hover:after:w-full after:transition-all"
+                className="text-blue-600  font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 dark:after:bg-blue-400 hover:after:w-full after:transition-all"
               >
                 Log in
               </button>
