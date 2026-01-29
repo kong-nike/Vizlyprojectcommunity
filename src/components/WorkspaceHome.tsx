@@ -71,7 +71,7 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
                 <button
                   className="px-4 py-2 text-sm text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-700 rounded-lg transition-all"
                 >
-                  My Filesde
+                  My Filesde hello
                 </button>
               </nav>
             </div>
