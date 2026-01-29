@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Grid3x3, Mail, Lock, Eye, EyeOff, Moon, Sun, Sparkles } from 'lucide-react';
 import vizlyLogo from '../../assets/logo.png';
+import vizlyLogo2 from '../../assets/vizlyLogo2.png';
 
 interface LoginProps {
   onLogin: () => void;
@@ -69,7 +70,7 @@ export default function Login({ onLogin, onNavigateToSignUp, onNavigateToForgot,
           <div className="text-center mb-8">
             <div className="flex items-center justify-center mb-4 group">
               <div className="relative">
-                <img src={vizlyLogo} alt="Vizly" className="w-20 h-20 transform group-hover:scale-110 transition-transform duration-300" />
+                <img src={vizlyLogo2} alt="Vizly" className="w-20 h-20 transform group-hover:scale-110 transition-transform duration-300" />
                 <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
               </div>
             </div>
