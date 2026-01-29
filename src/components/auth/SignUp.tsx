@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Grid3x3, User, Mail, Lock, Eye, EyeOff, Moon, Sun, Check, X, Sparkles, Zap } from 'lucide-react';
-import vizlyLogo from '../../assets/logo.png';
+import vizlyLogo from '../../assets/vizlyLogo.png';
 
 interface SignUpProps {
   onSignUp: () => void;
@@ -98,13 +98,13 @@ export default function SignUp({ onSignUp, onNavigateToLogin, darkMode, onToggle
           <div className="text-center mb-8">
             <div className="flex items-center justify-center mb-4 group">
               <div className="relative">
-                <img src={vizlyLogo} alt="Vizly" className="w-16 h-16 transform group-hover:scale-110 transition-transform duration-300" />
+                <img src={vizlyLogo} alt="Vizly" className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 transform group-hover:scale-110 transition-transform duration-300" />
                 <div className="absolute -inset-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
               </div>
             </div>
             <h1 className="text-gray-900 dark:text-white mb-2 flex items-center justify-center gap-2">
               Create Account
-              <Zap className="w-5 h-5 text-purple-500 animate-pulse" />
+              <Zap className="w-5 h-5 text-blue-500 animate-pulse" />
             </h1>
             <p className="text-gray-600 dark:text-gray-400">Join Vizly today</p>
           </div>
@@ -117,7 +117,7 @@ export default function SignUp({ onSignUp, onNavigateToLogin, darkMode, onToggle
                 Username
               </label>
               <div className="relative">
-                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-purple-500 transition-colors" />
+                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-blue-500 transition-colors" />
                 <input
                   type="text"
                   value={username}
@@ -129,7 +129,7 @@ export default function SignUp({ onSignUp, onNavigateToLogin, darkMode, onToggle
                   placeholder="Choose a username"
                   className={`w-full pl-11 pr-4 py-3.5 bg-gray-50 dark:bg-gray-900/50 border ${
                     errors.username && touched.username ? 'border-red-500 animate-shake' : 'border-gray-200 dark:border-gray-700'
-                  } rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 transition-all duration-200 hover:border-gray-300 dark:hover:border-gray-600`}
+                  } rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 transition-all duration-200 hover:border-gray-300 dark:hover:border-gray-600`}
                 />
               </div>
               {errors.username && touched.username && (
@@ -146,7 +146,7 @@ export default function SignUp({ onSignUp, onNavigateToLogin, darkMode, onToggle
                 Email Address
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-purple-500 transition-colors" />
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-blue-500 transition-colors" />
                 <input
                   type="email"
                   value={email}
@@ -158,7 +158,7 @@ export default function SignUp({ onSignUp, onNavigateToLogin, darkMode, onToggle
                   placeholder="Enter your email"
                   className={`w-full pl-11 pr-4 py-3.5 bg-gray-50 dark:bg-gray-900/50 border ${
                     errors.email && touched.email ? 'border-red-500 animate-shake' : 'border-gray-200 dark:border-gray-700'
-                  } rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 transition-all duration-200 hover:border-gray-300 dark:hover:border-gray-600`}
+                  } rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 transition-all duration-200 hover:border-gray-300 dark:hover:border-gray-600`}
                 />
               </div>
               {errors.email && touched.email && (
@@ -175,7 +175,7 @@ export default function SignUp({ onSignUp, onNavigateToLogin, darkMode, onToggle
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-purple-500 transition-colors" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-blue-500 transition-colors" />
                 <input
                   type={showPassword ? 'text' : 'password'}
                   value={password}
@@ -187,12 +187,12 @@ export default function SignUp({ onSignUp, onNavigateToLogin, darkMode, onToggle
                   placeholder="Create a strong password"
                   className={`w-full pl-11 pr-12 py-3.5 bg-gray-50 dark:bg-gray-900/50 border ${
                     errors.password && touched.password ? 'border-red-500 animate-shake' : 'border-gray-200 dark:border-gray-700'
-                  } rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 transition-all duration-200 hover:border-gray-300 dark:hover:border-gray-600`}
+                  } rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 transition-all duration-200 hover:border-gray-300 dark:hover:border-gray-600`}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg cursor-pointer"
                 >
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
@@ -275,11 +275,11 @@ export default function SignUp({ onSignUp, onNavigateToLogin, darkMode, onToggle
               />
               <label htmlFor="terms" className="text-sm text-gray-600 dark:text-gray-400 cursor-pointer">
                 I agree to the{' '}
-                <button type="button" className="text-purple-600 dark:text-purple-400 hover:underline font-medium">
+                <button type="button" className="text-blue-600 dark:text-blue-400 hover:underline font-medium cursor-pointer">
                   Terms of Service
                 </button>{' '}
                 and{' '}
-                <button type="button" className="text-purple-600 dark:text-purple-400 hover:underline font-medium">
+                <button type="button" className="text-blue-600 dark:text-blue-400 hover:underline font-medium cursor-pointer">
                   Privacy Policy
                 </button>
               </label>
@@ -288,10 +288,10 @@ export default function SignUp({ onSignUp, onNavigateToLogin, darkMode, onToggle
             {/* Create Account Button */}
             <button
               type="submit"
-              className="w-full py-3.5 bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-size-200 bg-pos-0 hover:bg-pos-100 text-white rounded-xl font-medium shadow-lg shadow-purple-500/30 hover:shadow-xl hover:shadow-pink-500/40 hover:scale-[1.02] transition-all duration-300 relative overflow-hidden group"
+              className="w-full py-3.5 bg-gradient-to-r from-blue-600 via-blue-600 to-blue-600 bg-size-200 bg-pos-0 hover:bg-pos-100 text-white rounded-xl font-medium  hover:scale-[1.02] transition-all duration-300 relative overflow-hidden group cursor-pointer"
             >
               <span className="relative z-10">Create Account</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-blue-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>
           </form>
 
@@ -301,7 +301,7 @@ export default function SignUp({ onSignUp, onNavigateToLogin, darkMode, onToggle
               Already have an account?{' '}
               <button
                 onClick={onNavigateToLogin}
-                className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-purple-600 dark:after:bg-purple-400 hover:after:w-full after:transition-all"
+                className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 dark:after:bg-blue-400 hover:after:w-full after:transition-all cursor-pointer"
               >
                 Log in
               </button>

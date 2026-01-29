@@ -4,7 +4,8 @@ import ProfileSettings from './ProfileSettings';
 import ImportDataModal from './ImportDataModal';
 import EditItemModal from './EditItemModal';
 import NotificationPanel from './NotificationPanel';
-import vizlyLogo from '../assets/logo.png';
+import logo from '../assets/logo.png';
+import vizlyLogo from '../assets/vizlyLogo.png';
 
 interface WorkspaceHomeProps {
   onNavigate: (screen: 'home' | 'workspace' | 'builder') => void;
