@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Grid3x3, Mail, Lock, Eye, EyeOff, Moon, Sun, ArrowLeft, Check, X, Shield, KeyRound } from 'lucide-react';
 import vizlyLogo from '../../assets/logo.png';
-
+import vizlyLogo2 from '../../assets/vizlyLogo2.png';
 interface ForgotPasswordProps {
   onComplete: () => void;
   onNavigateToLogin: () => void;
@@ -105,7 +105,7 @@ export default function ForgotPassword({ onComplete, onNavigateToLogin, darkMode
       {/* Dark Mode Toggle */}
       <button
         onClick={() => onToggleDarkMode(!darkMode)}
-        className="fixed top-6 right-6 p-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 z-10 group"
+        className="fixed top-6 right-6 p-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 z-10 group cursor-pointer"
       >
         {darkMode ? (
           <Sun className="w-5 h-5 text-yellow-500 group-hover:rotate-45 transition-transform duration-300" />
@@ -121,7 +121,7 @@ export default function ForgotPassword({ onComplete, onNavigateToLogin, darkMode
           <div className="text-center mb-8">
             <div className="flex items-center justify-center mb-4 group">
               <div className="relative">
-                <img src={vizlyLogo} alt="Vizly" className="w-16 h-16 transform group-hover:scale-110 transition-transform duration-300" />
+                <img src={vizlyLogo2} alt="Vizly" className="w-16 h-16 transform group-hover:scale-110 transition-transform duration-300" />
                 <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
               </div>
             </div>
@@ -157,7 +157,7 @@ export default function ForgotPassword({ onComplete, onNavigateToLogin, darkMode
               {[1, 2, 3].map((s) => (
                 <div key={s} className="flex items-center justify-center border">
                   <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
-                    s < step ? 'bg-gradient-to-br from-green-500 to-green-600 shadow-lg shadow-green-500/30' : s === step ? 'bg-gradient-to-br from-blue-600 to-purple-600 shadow-lg shadow-purple-500/30 scale-110' : 'bg-gray-200 dark:bg-gray-700'
+                    s < step ? 'bg-gradient-to-br from-green-500 to-green-600 shadow-lg shadow-green-500/30' : s === step ? 'bg-gradient-to-br from-blue-600 to-blue-600 shadow-lg shadow-blue-500/30 scale-110' : 'bg-gray-200 dark:bg-gray-700'
                   }`}>
                     {s < step ? (
                       <Check className="w-5 h-5 text-white animate-scaleIn" />
@@ -214,13 +214,13 @@ export default function ForgotPassword({ onComplete, onNavigateToLogin, darkMode
 
               <button
                 type="submit"
-                className="w-full py-3.5 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-size-200 bg-pos-0 hover:bg-pos-100 text-white rounded-xl font-medium shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-purple-500/40 hover:scale-[1.02] transition-all duration-300 relative overflow-hidden group"
+                className="w-full py-3.5 bg-gradient-to-r from-blue-600 via-blue-600 to-blue-600 bg-size-200 bg-pos-0 hover:bg-pos-100 text-white rounded-xl font-medium shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:scale-[1.02] transition-all duration-300 relative overflow-hidden group cursor-pointer"
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   Send Verification Code
                   <Mail className="w-4 h-4" />
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
             </form>
           )}
@@ -244,7 +244,7 @@ export default function ForgotPassword({ onComplete, onNavigateToLogin, darkMode
                   maxLength={6}
                   className={`w-full px-4 py-4 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900/50 dark:to-gray-900/80 border ${
                     errors.code ? 'border-red-500 animate-shake' : 'border-gray-200 dark:border-gray-700'
-                  } rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 transition-all text-center text-3xl tracking-[0.5em] font-bold hover:border-gray-300 dark:hover:border-gray-600`}
+                  } rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 transition-all text-center text-3xl tracking-[0.5em] font-bold hover:border-gray-300 dark:hover:border-gray-600`}
                 />
                 {errors.code && (
                   <p className="text-red-500 text-sm mt-1 animate-slideDown flex items-center gap-1">
@@ -259,7 +259,7 @@ export default function ForgotPassword({ onComplete, onNavigateToLogin, darkMode
                   Didn't receive the code?{' '}
                   <button
                     type="button"
-                    className="font-medium hover:underline transition-all"
+                    className="font-medium hover:underline transition-all cursor-pointer"
                   >
                     Resend
                   </button>
@@ -268,13 +268,13 @@ export default function ForgotPassword({ onComplete, onNavigateToLogin, darkMode
 
               <button
                 type="submit"
-                className="w-full py-3.5 bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-size-200 bg-pos-0 hover:bg-pos-100 text-white rounded-xl font-medium shadow-lg shadow-purple-500/30 hover:shadow-xl hover:shadow-pink-500/40 hover:scale-[1.02] transition-all duration-300 relative overflow-hidden group"
+                className="w-full py-3.5 bg-gradient-to-r from-blue-600 via-blue-600 to-blue-600 bg-size-200 bg-pos-0 hover:bg-pos-100 text-white rounded-xl font-medium shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:scale-[1.02] transition-all duration-300 relative overflow-hidden group cursor-pointer"
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   Verify Code
                   <Shield className="w-4 h-4" />
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
 
               <button
@@ -296,7 +296,7 @@ export default function ForgotPassword({ onComplete, onNavigateToLogin, darkMode
                   New Password
                 </label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-green-500 transition-colors" />
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-blue-500 transition-colors" />
                   <input
                     type={showNewPassword ? 'text' : 'password'}
                     value={newPassword}
@@ -307,12 +307,12 @@ export default function ForgotPassword({ onComplete, onNavigateToLogin, darkMode
                     placeholder="Enter new password"
                     className={`w-full pl-11 pr-12 py-3.5 bg-gray-50 dark:bg-gray-900/50 border ${
                       errors.password ? 'border-red-500 animate-shake' : 'border-gray-200 dark:border-gray-700'
-                    } rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 transition-all duration-200 hover:border-gray-300 dark:hover:border-gray-600`}
+                    } rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 transition-all duration-200 hover:border-gray-300 dark:hover:border-gray-600`}
                   />
                   <button
                     type="button"
                     onClick={() => setShowNewPassword(!showNewPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg cursor-pointer"
                   >
                     {showNewPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
@@ -397,7 +397,7 @@ export default function ForgotPassword({ onComplete, onNavigateToLogin, darkMode
                   Confirm Password
                 </label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-green-500 transition-colors" />
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-blue-500 transition-colors" />
                   <input
                     type={showConfirmPassword ? 'text' : 'password'}
                     value={confirmPassword}
@@ -408,12 +408,12 @@ export default function ForgotPassword({ onComplete, onNavigateToLogin, darkMode
                     placeholder="Confirm new password"
                     className={`w-full pl-11 pr-12 py-3.5 bg-gray-50 dark:bg-gray-900/50 border ${
                       errors.confirmPassword ? 'border-red-500 animate-shake' : 'border-gray-200 dark:border-gray-700'
-                    } rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 transition-all duration-200 hover:border-gray-300 dark:hover:border-gray-600`}
+                    } rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 transition-all duration-200 hover:border-gray-300 dark:hover:border-gray-600`}
                   />
                   <button
                     type="button"
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg cursor-pointer"
                   >
                     {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
@@ -435,19 +435,19 @@ export default function ForgotPassword({ onComplete, onNavigateToLogin, darkMode
 
               <button
                 type="submit"
-                className="w-full py-3.5 bg-gradient-to-r from-green-600 via-emerald-600 to-green-600 bg-size-200 bg-pos-0 hover:bg-pos-100 text-white rounded-xl font-medium shadow-lg shadow-green-500/30 hover:shadow-xl hover:shadow-emerald-500/40 hover:scale-[1.02] transition-all duration-300 relative overflow-hidden group"
+                className="w-full py-3.5 bg-gradient-to-r from-blue-600 via-blue-600 to-blue-600 bg-size-200 bg-pos-0 hover:bg-pos-100 text-white rounded-xl font-medium shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:scale-[1.02] transition-all duration-300 relative overflow-hidden group cursor-pointer"
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   Reset Password
                   <Check className="w-4 h-4" />
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-green-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
 
               <button
                 type="button"
                 onClick={() => setStep(2)}
-                className="w-full py-3 bg-gray-100 dark:bg-gray-900/50 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200 flex items-center justify-center space-x-2 group"
+                className="w-full py-3 bg-gray-100 dark:bg-gray-900/50 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200 flex items-center justify-center space-x-2 group cursor-pointer"
               >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                 <span>Back</span>
@@ -459,7 +459,7 @@ export default function ForgotPassword({ onComplete, onNavigateToLogin, darkMode
           <div className="mt-6 text-center">
             <button
               onClick={onNavigateToLogin}
-              className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-300 transition-colors flex items-center justify-center space-x-2 mx-auto group"
+              className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-300 transition-colors flex items-center justify-center space-x-2 mx-auto group cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               <span>Back to Login</span>

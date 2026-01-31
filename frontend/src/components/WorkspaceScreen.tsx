@@ -1,3 +1,4 @@
+import vizlyLogo2 from '../assets/vizlylogo2.png';
 import { useState, useEffect, useRef } from "react";
 import {
   Search,
@@ -413,8 +414,8 @@ export default function WorkspaceScreen({
           <div className="flex items-center justify-between">
             {/* Logo and Tabs */}
             <div className="flex items-center gap-8">
-              <div className="flex items-center space-x-3">
-                <img onClick={() => onNavigate('home')} src={vizlyLogo} alt="Vizly" className="w-10 h-10" />
+              <div className="flex items-center space-x-3 cursor-pointer">
+                <img onClick={() => onNavigate('home')} src={vizlyLogo2} alt="Vizly" className="w-10 h-10" />
                 <span onClick={() => onNavigate('home')} className="text-xl text-gray-900 dark:text-white">Vizly</span>
               </div>
               
@@ -422,7 +423,7 @@ export default function WorkspaceScreen({
               <nav className="flex items-center gap-2">
                 <button
                   onClick={() => onNavigate('home')}
-                  className="px-4 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-lg transition-all"
+                  className="px-4 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-lg transition-all cursor-pointer"
                 >
                   My Files
                 </button>
@@ -436,7 +437,7 @@ export default function WorkspaceScreen({
               
               <button
                 onClick={() => onToggleDarkMode(!darkMode)}
-                className="p-2.5 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-all"
+                className="p-2.5 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-all cursor-pointer"
               >
                 {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </button>
@@ -444,7 +445,7 @@ export default function WorkspaceScreen({
               <div className="relative">
                 <button 
                   onClick={() => setShowProfileMenu(!showProfileMenu)}
-                  className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white hover:shadow-lg hover:scale-105 transition-all"
+                  className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
                 >
                   <User className="w-5 h-5" />
                 </button>
@@ -459,14 +460,14 @@ export default function WorkspaceScreen({
                         setShowSettings(true);
                         setShowProfileMenu(false);
                       }}
-                      className="w-full px-4 py-2 text-left text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex items-center space-x-2"
+                      className="w-full px-4 py-2 text-left text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex items-center space-x-2 cursor-pointer"
                     >
                       <UserCog className="w-4 h-4" />
                       <span>Settings</span>
                     </button>
                     <button
                       onClick={onLogout}
-                      className="w-full px-4 py-2 text-left text-red-700 dark:text-red-300 hover:bg-red-100 dark:hover:bg-red-700 transition-colors flex items-center space-x-2"
+                      className="w-full px-4 py-2 text-left text-red-700 dark:text-red-300 hover:bg-red-100 dark:hover:bg-red-700 transition-colors flex items-center space-x-2 cursor-pointer"
                     >
                       <LogOut className="w-4 h-4" />
                       <span>Logout</span>

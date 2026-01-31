@@ -5,6 +5,7 @@ import ImportDataModal from './ImportDataModal';
 import EditItemModal from './EditItemModal';
 import NotificationPanel from './NotificationPanel';
 import vizlyLogo from '../assets/logo.png';
+import vizlyLogo2 from '../assets/vizlyLogo2.png';
 
 interface WorkspaceHomeProps {
   onNavigate: (screen: 'home' | 'workspace' | 'builder') => void;
@@ -61,15 +62,15 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
           <div className="flex items-center justify-between">
             {/* Logo and Tabs */}
             <div className="flex items-center gap-8">
-              <div className="flex items-center space-x-3">
-                <img src={vizlyLogo} alt="Vizly" className="w-10 h-10" />
+              <div className="flex items-center space-x-3 cursor-pointer">
+                <img src={vizlyLogo2} alt="Vizly" className="w-10 h-10" />
                 <span className="text-xl text-gray-900 dark:text-white">Vizly</span>
               </div>
               
               {/* Tab Navigation */}
               <nav className="flex items-center gap-2">
                 <button
-                  className="px-4 py-2 text-sm text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-700 rounded-lg transition-all"
+                  className="px-4 py-2 text-sm text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-700 rounded-lg transition-all cursor-pointer hover:shadow-md hover:scale-105"
                 >
                   My File
                 </button>
@@ -81,18 +82,18 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
             {/* Right Actions */}
             <div className="flex items-center space-x-3">
               {/* Notifications */}
-              <NotificationPanel darkMode={darkMode} />
+              <NotificationPanel darkMode={darkMode}/>
               
               <button
                 onClick={() => onToggleDarkMode(!darkMode)}
-                className="p-2.5 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-all"
+                className="p-2.5 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-all cursor-pointer"
               >
                 {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </button>
               <div className="relative">
                 <button 
                   onClick={() => setShowProfileMenu(!showProfileMenu)}
-                  className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white hover:shadow-lg hover:scale-105 transition-all"
+                  className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
                 >
                   <User className="w-5 h-5" />
                 </button>
@@ -107,14 +108,14 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
                         setShowSettings(true);
                         setShowProfileMenu(false);
                       }}
-                      className="w-full px-4 py-2 text-left text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex items-center space-x-2"
+                      className="w-full px-4 py-2 text-left text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex items-center space-x-2 cursor-pointer"
                     >
                       <UserCog className="w-4 h-4" />
                       <span>Settings</span>
                     </button>
                     <button
                       onClick={onLogout}
-                      className="w-full px-4 py-2 text-left text-red-700 dark:text-red-300 hover:bg-red-100 dark:hover:bg-red-700 transition-colors flex items-center space-x-2"
+                      className="w-full px-4 py-2 text-left text-red-700 dark:text-red-300 hover:bg-red-100 dark:hover:bg-red-700 transition-colors flex items-center space-x-2 cursor-pointer"
                     >
                       <LogOut className="w-4 h-4" />
                       <span>Logout</span>
@@ -141,7 +142,7 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
             </div>
             <button 
               onClick={() => setShowImportModal(true)}
-              className="flex items-center space-x-2 px-4 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all shadow-sm hover:shadow-md hover:scale-105"
+              className="flex items-center space-x-2 px-4 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all shadow-sm hover:shadow-md hover:scale-105 cursor-pointer"
             >
               <Plus className="w-4 h-4" />
               <span>Import Data</span>
@@ -218,7 +219,7 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
                         e.stopPropagation();
                         setShowItemMenu(showItemMenu === workspace.id ? null : workspace.id);
                       }}
-                      className="p-2 bg-gray-50 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors shadow-sm"
+                      className="p-2 bg-gray-50 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors shadow-sm cursor-pointer"
                     >
                       <MoreVertical className="w-4 h-4" />
                     </button>
@@ -230,7 +231,7 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
                             e.stopPropagation();
                             handleEditWorkspace(workspace.id);
                           }}
-                          className="w-full px-4 py-2.5 text-left text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex items-center space-x-3 text-sm"
+                          className="w-full px-4 py-2.5 text-left text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex items-center space-x-3 text-sm cursor-pointer"
                         >
                           <Edit2 className="w-4 h-4" />
                           <span>Edit</span>
@@ -240,7 +241,7 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
                             e.stopPropagation();
                             handleDeleteWorkspace(workspace.id);
                           }}
-                          className="w-full px-4 py-2.5 text-left text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors flex items-center space-x-3 text-sm"
+                          className="w-full px-4 py-2.5 text-left text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors flex items-center space-x-3 text-sm cursor-pointer"
                         >
                           <Trash2 className="w-4 h-4" />
                           <span>Delete</span>
@@ -294,7 +295,7 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
                           e.stopPropagation();
                           onNavigate('workspace');
                         }}
-                        className="opacity-0 group-hover:opacity-100 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs transition-all"
+                        className="opacity-0 group-hover:opacity-100 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs transition-all cursor-pointer"
                       >
                         Open
                       </button>

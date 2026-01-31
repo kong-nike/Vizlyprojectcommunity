@@ -54,7 +54,7 @@ export default function Login({ onLogin, onNavigateToSignUp, onNavigateToForgot,
       {/* Dark Mode Toggle */}
       <button
         onClick={() => onToggleDarkMode(!darkMode)}
-        className="fixed top-6 right-6 p-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 z-10 group"
+        className="fixed top-6 right-6 p-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 z-10 group cursor-pointer"
       >
         {darkMode ? (
           <Sun className="w-5 h-5 text-yellow-500 group-hover:rotate-45 transition-transform duration-300" />
