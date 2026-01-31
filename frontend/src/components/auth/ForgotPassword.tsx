@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Grid3x3, Mail, Lock, Eye, EyeOff, Moon, Sun, ArrowLeft, Check, X, Shield, KeyRound } from 'lucide-react';
-import vizlyLogo from '../../assets/logo.png';
+import vizlyLogo from '../../assets/vizlyLogo2.png';
 
 interface ForgotPasswordProps {
   onComplete: () => void;

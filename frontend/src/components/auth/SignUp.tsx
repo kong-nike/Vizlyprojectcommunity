@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Grid3x3, User, Mail, Lock, Eye, EyeOff, Moon, Sun, Check, X, Sparkles, Zap } from 'lucide-react';
-import vizlyLogo from '../../assets/logo.png';
+import vizlyLogo from '../../assets/vizlyLogo2.png';
 
 interface SignUpProps {
   onSignUp: () => void;
