@@ -71,7 +71,7 @@ export default function Login({ onLogin, onNavigateToSignUp, onNavigateToForgot,
             <div className="flex items-center justify-center mb-4 group">
               <div className="relative">
                 <img src={vizlyLogo2} alt="Vizly" className="w-20 h-20 transform group-hover:scale-110 transition-transform duration-300" />
-                <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
+                <div className="absolute -inset-2 bg-[#3A6EA5] rounded-full blur opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
               </div>
             </div>
             <h1 className="text-gray-900 dark:text-white mb-1 flex items-center justify-center gap-2 text-2xl font-bold">
