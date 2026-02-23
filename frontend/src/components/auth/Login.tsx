@@ -168,7 +168,7 @@ export default function Login({ onLogin, onNavigateToSignUp, onNavigateToForgot,
             {/* Login Button */}
             <button
               type="submit"
-              className="w-full py-3.5 bg-gradient-to-r from-blue-600 via-blue-600 to-blue-600 bg-size-200 bg-pos-0 hover:bg-pos-100 text-white rounded-xl font-medium  hover:scale-[1.02] transition-all duration-300 relative overflow-hidden group cursor-pointer"
+              className="w-full py-3.5 bg-blue-600 bg-size-200 bg-pos-0 hover:bg-pos-100 text-white rounded-xl font-medium  hover:scale-[1.02] transition-all duration-300 relative overflow-hidden group cursor-pointer"
             >
               <span className="relative z-10">Log In</span>
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

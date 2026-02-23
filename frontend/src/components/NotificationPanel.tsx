@@ -160,7 +160,7 @@ export default function NotificationPanel({ darkMode }: NotificationPanelProps) 
           {/* Panel */}
           <div className="absolute right-0 mt-2 w-96 max-h-[600px] bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700 z-50 overflow-hidden flex flex-col">
             {/* Header */}
-            <div className="px-5 py-4 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20">
+            <div className="px-5 py-4 border-b border-gray-200 dark:border-gray-700 bg-blue-50 dark:from-blue-900/20 dark:to-purple-900/20">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
                   <h3 className="text-gray-900 dark:text-white">Notifications</h3>

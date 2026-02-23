@@ -93,7 +93,7 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
               <div className="relative">
                 <button 
                   onClick={() => setShowProfileMenu(!showProfileMenu)}
-                  className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
+                  className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
                 >
                   <User className="w-5 h-5" />
                 </button>
@@ -164,39 +164,95 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
 
           {/* Quick Stats */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-            <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-5 text-white">
-              <div className="flex items-center justify-between mb-2">
-                <Folder className="w-8 h-8 opacity-80" />
-                <TrendingUp className="w-5 h-5 opacity-60" />
+
+            <div className="relative inline-block">
+              <div className="absolute inset-0 translate-x-2 translate-y-2 
+                              bg-blue-500 rounded-2xl opacity-50"></div>
+
+              <div className="relative bg-white rounded-2xl px-6 py-4
+                              border border-blue-200 shadow-sm
+                              transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 flex items-center justify-center 
+                                  rounded-lg bg-blue-600/10">
+                    <Folder className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-semibold text-gray-900">
+                      {workspaces.length}
+                    </div>
+                    <div className="text-sm text-gray-500"> Total Workspaces </div>
+                  </div>
+                </div>
               </div>
-              <div className="text-2xl mb-1">{workspaces.length}</div>
-              <div className="text-sm opacity-90">Total Workspaces</div>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-5 text-white">
-              <div className="flex items-center justify-between mb-2">
-                <BarChart3 className="w-8 h-8 opacity-80" />
-                <TrendingUp className="w-5 h-5 opacity-60" />
+            <div className="relative inline-block">
+              <div className="absolute inset-0 translate-x-2 translate-y-2  
+                              bg-blue-500 rounded-2xl opacity-50"></div>
+
+              <div className="relative bg-white rounded-2xl px-6 py-4
+                              border border-blue-200 shadow-sm
+                              transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 flex items-center justify-center 
+                                  rounded-lg bg-blue-600/10">
+                    <BarChart3 className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-semibold text-gray-900">
+                      {workspaces.reduce((acc, w) => acc + w.reports, 0)}
+                    </div>
+                    <div className="text-sm text-gray-500"> Total Reports </div>
+                  </div>
+                </div>
               </div>
-              <div className="text-2xl mb-1">{workspaces.reduce((acc, w) => acc + w.reports, 0)}</div>
-              <div className="text-sm opacity-90">Total Reports</div>
             </div>
 
-            <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl p-5 text-white">
-              <div className="flex items-center justify-between mb-2">
-                <Clock className="w-8 h-8 opacity-80" />
+            <div className="relative inline-block">
+              <div className="absolute inset-0 translate-x-2 translate-y-2 
+                              bg-blue-500 rounded-2xl opacity-50"></div>
+
+              <div className="relative bg-white rounded-2xl px-6 py-4
+                              border border-blue-200 shadow-sm
+                              transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 flex items-center justify-center 
+                                  rounded-lg bg-blue-600/10">
+                    <Clock className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-semibold text-gray-900"> Today </div>
+                    <div className="text-sm text-gray-500"> Last Activity </div>
+                  </div>
+                </div>
               </div>
-              <div className="text-2xl mb-1">Today</div>
-              <div className="text-sm opacity-90">Last Activity</div>
             </div>
 
-            <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl p-5 text-white">
-              <div className="flex items-center justify-between mb-2">
-                <Users className="w-8 h-8 opacity-80" />
+            <div className="relative inline-block">
+              <div className="absolute inset-0 translate-x-2 translate-y-2 
+                              bg-blue-500 rounded-2xl opacity-50"></div>
+
+              <div className="relative bg-white rounded-2xl px-6 py-4
+                              border border-blue-200 shadow-sm
+                              transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 flex items-center justify-center 
+                                  rounded-lg bg-blue-600/10">
+                    <Users className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-semibold text-gray-900"> 3 </div>
+                    <div className="text-sm text-gray-500"> Collaborators </div>
+                  </div>
+                </div>
               </div>
-              <div className="text-2xl mb-1">3</div>
-              <div className="text-sm opacity-90">Collaborators</div>
             </div>
+            
           </div>
         </div>
 
