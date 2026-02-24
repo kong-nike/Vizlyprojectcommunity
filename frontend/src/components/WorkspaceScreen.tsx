@@ -445,7 +445,7 @@ export default function WorkspaceScreen({
               <div className="relative">
                 <button 
                   onClick={() => setShowProfileMenu(!showProfileMenu)}
-                  className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
+                  className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
                 >
                   <User className="w-5 h-5" />
                 </button>
@@ -483,12 +483,11 @@ export default function WorkspaceScreen({
         <div className="px-6 py-4 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              {/* Back to Home */}
               <div className="relative group">
                 <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 group-focus-within:text-blue-500 transition-colors" />
                 <input
                   type="text"
-                  placeholder="Search in workspace..."
+                  placeholder="Search workspaces..."
                   className="w-80 pl-10 pr-4 py-2.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400 text-sm transition-all"
                 />
               </div>
@@ -677,31 +676,47 @@ export default function WorkspaceScreen({
 
               {/* Quick Stats Cards */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-5 text-white">
-                  <div className="flex items-center justify-between mb-3">
-                    <BarChart3 className="w-8 h-8 opacity-80" />
-                    <TrendingUp className="w-5 h-5 opacity-60" />
+                <div className="relative inline-block">
+                  <div className="relative bg-white dark:bg-gray-800 dark:border-blue-500 rounded-2xl px-6 py-4 border border-blue-500 dark:border-blue-400 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-blue-600/10">
+                        <BarChart3 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      </div>
+                      <div>
+                        <div className="text-2xl font-semibold text-gray-900 dark:text-gray-300">{getGroupedItems().dashboards.length}</div>
+                        <div className="text-sm text-gray-500">Active Dashboards</div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-2xl mb-1">{getGroupedItems().dashboards.length}</div>
-                  <div className="text-sm opacity-90">Active Dashboards</div>
                 </div>
 
-                <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-5 text-white">
-                  <div className="flex items-center justify-between mb-3">
-                    <FileText className="w-8 h-8 opacity-80" />
-                    <TrendingUp className="w-5 h-5 opacity-60" />
+
+                <div className="relative inline-block">
+                  <div className="relative bg-white dark:bg-gray-800 dark:border-blue-500 rounded-2xl px-6 py-4 border border-blue-500 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-blue-600/10 ">
+                        <FileText className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      </div>
+                      <div>
+                        <div className="text-2xl font-semibold text-gray-900 dark:text-gray-300">{getGroupedItems().reports.length}</div>
+                        <div className="text-sm text-gray-500">Total Reports</div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-2xl mb-1">{getGroupedItems().reports.length}</div>
-                  <div className="text-sm opacity-90">Total Reports</div>
                 </div>
 
-                <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl p-5 text-white">
-                  <div className="flex items-center justify-between mb-3">
-                    <Database className="w-8 h-8 opacity-80" />
-                    <TrendingUp className="w-5 h-5 opacity-60" />
+                <div className="relative inline-block">
+                  <div className="relative bg-white dark:bg-gray-800 dark:border-blue-500 rounded-2xl px-6 py-4 border border-blue-500 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-blue-600/10">
+                        <Database className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      </div>
+                      <div>
+                        <div className="text-2xl font-semibold text-gray-900 dark:text-gray-300">{getGroupedItems().datasets.length}</div>
+                        <div className="text-sm text-gray-500">Data Sources</div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-2xl mb-1">{getGroupedItems().datasets.length}</div>
-                  <div className="text-sm opacity-90">Data Sources</div>
                 </div>
               </div>
             </div>

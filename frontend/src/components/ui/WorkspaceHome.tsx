@@ -166,18 +166,20 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
 
             <div className="relative inline-block">
+              <div className="absolute inset-0 translate-x-2 translate-y-2 
+                              bg-blue-500 rounded-2xl opacity-50"></div>
 
               <div className="relative bg-white rounded-2xl px-6 py-4
-                              border border-blue-500 dark:bg-gray-800 dark:border-blue-500shadow-sm
+                              border border-blue-200 shadow-sm
                               transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
 
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 flex items-center justify-center 
                                   rounded-lg bg-blue-600/10">
-                    <Folder className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                    <Folder className="w-5 h-5 text-blue-600" />
                   </div>
                   <div>
-                    <div className="text-2xl font-semibold text-gray-900 dark:text-gray-300">
+                    <div className="text-2xl font-semibold text-gray-900">
                       {workspaces.length}
                     </div>
                     <div className="text-sm text-gray-500"> Total Workspaces </div>
@@ -187,18 +189,20 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
             </div>
 
             <div className="relative inline-block">
+              <div className="absolute inset-0 translate-x-2 translate-y-2  
+                              bg-blue-500 rounded-2xl opacity-50"></div>
 
               <div className="relative bg-white rounded-2xl px-6 py-4
-                              border border-blue-500 dark:bg-gray-800 dark:border-blue-500shadow-sm
+                              border border-blue-200 shadow-sm
                               transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
 
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 flex items-center justify-center 
                                   rounded-lg bg-blue-600/10">
-                    <BarChart3 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                    <BarChart3 className="w-5 h-5 text-blue-600" />
                   </div>
                   <div>
-                    <div className="text-2xl font-semibold text-gray-900 dark:text-gray-300">
+                    <div className="text-2xl font-semibold text-gray-900">
                       {workspaces.reduce((acc, w) => acc + w.reports, 0)}
                     </div>
                     <div className="text-sm text-gray-500"> Total Reports </div>
@@ -208,18 +212,20 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
             </div>
 
             <div className="relative inline-block">
+              <div className="absolute inset-0 translate-x-2 translate-y-2 
+                              bg-blue-500 rounded-2xl opacity-50"></div>
 
               <div className="relative bg-white rounded-2xl px-6 py-4
-                              border border-blue-500 dark:bg-gray-800 dark:border-blue-500 shadow-sm
+                              border border-blue-200 shadow-sm
                               transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
 
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 flex items-center justify-center 
                                   rounded-lg bg-blue-600/10">
-                    <Clock className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                    <Clock className="w-5 h-5 text-blue-600" />
                   </div>
                   <div>
-                    <div className="text-2xl font-semibold text-gray-900 dark:text-gray-300"> Today </div>
+                    <div className="text-2xl font-semibold text-gray-900"> Today </div>
                     <div className="text-sm text-gray-500"> Last Activity </div>
                   </div>
                 </div>
@@ -227,18 +233,20 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
             </div>
 
             <div className="relative inline-block">
+              <div className="absolute inset-0 translate-x-2 translate-y-2 
+                              bg-blue-500 rounded-2xl opacity-50"></div>
 
               <div className="relative bg-white rounded-2xl px-6 py-4
-                              border border-blue-500 dark:bg-gray-800 dark:border-blue-500 shadow-sm
+                              border border-blue-200 shadow-sm
                               transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
 
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 flex items-center justify-center 
                                   rounded-lg bg-blue-600/10">
-                    <Users className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                    <Users className="w-5 h-5 text-blue-600" />
                   </div>
                   <div>
-                    <div className="text-2xl font-semibold text-gray-900 dark:text-gray-300"> 3 </div>
+                    <div className="text-2xl font-semibold text-gray-900"> 3 </div>
                     <div className="text-sm text-gray-500"> Collaborators </div>
                   </div>
                 </div>
@@ -256,7 +264,7 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
               className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer hover:-translate-y-1 group relative"
             >
               {/* Colored Header Bar */}
-              <div className={`h-2 bg-blue-500`}></div>
+              <div className={`h-2 ${workspace.color}`}></div>
               
               <div className="p-6">
                 {/* Settings Button with Dropdown - Shows on hover */}
@@ -273,7 +281,7 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
                     </button>
                     
                     {showItemMenu === workspace.id && (
-                      <div className="absolute right-0 mt-2 w-44 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 py-2 z-50">
+                      <div className="absolute right-0 mt-2 w-44 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 py-2 z-50 cursor-pointer">
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
@@ -302,7 +310,7 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
                 <div onClick={() => onNavigate('workspace')}>
                   {/* Icon and Badge */}
                   <div className="flex items-center justify-between mb-5">
-                    <div className={`w-14 h-14 bg-blue-500 rounded-xl flex items-center justify-center shadow-lg`}>
+                    <div className={`w-14 h-14 ${workspace.color} rounded-xl flex items-center justify-center shadow-lg`}>
                       <Folder className="w-7 h-7 text-white" />
                     </div>
                   </div>
@@ -327,8 +335,8 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
                     </div>
                     
                     <div className="flex items-center space-x-2">
-                      <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
-                        <Clock className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                      <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
+                        <Clock className="w-4 h-4 text-purple-600 dark:text-purple-400" />
                       </div>
                       <div>
                         <div className="text-xs text-gray-500 dark:text-gray-400">Updated</div>
