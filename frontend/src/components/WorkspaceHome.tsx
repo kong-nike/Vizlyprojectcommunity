@@ -168,8 +168,7 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
             <div className="relative inline-block">
 
               <div className="relative bg-white rounded-2xl px-6 py-4
-                              border border-blue-500 dark:bg-gray-800 dark:border-blue-500shadow-sm
-                              transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                              border border-blue-500 dark:bg-gray-800 dark:border-blue-500 shadow-sm hover:shadow-md">
 
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 flex items-center justify-center 
@@ -189,8 +188,7 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
             <div className="relative inline-block">
 
               <div className="relative bg-white rounded-2xl px-6 py-4
-                              border border-blue-500 dark:bg-gray-800 dark:border-blue-500shadow-sm
-                              transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                              border border-blue-500 dark:bg-gray-800 dark:border-blue-500shadow-sm hover:shadow-md">
 
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 flex items-center justify-center 
@@ -210,9 +208,7 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
             <div className="relative inline-block">
 
               <div className="relative bg-white rounded-2xl px-6 py-4
-                              border border-blue-500 dark:bg-gray-800 dark:border-blue-500 shadow-sm
-                              transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
-
+                              border border-blue-500 dark:bg-gray-800 dark:border-blue-500 shadow-sm hover:shadow-md">
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 flex items-center justify-center 
                                   rounded-lg bg-blue-600/10">
@@ -225,26 +221,7 @@ export default function WorkspaceHome({ onNavigate, onLogout, darkMode, onToggle
                 </div>
               </div>
             </div>
-
-            <div className="relative inline-block">
-
-              <div className="relative bg-white rounded-2xl px-6 py-4
-                              border border-blue-500 dark:bg-gray-800 dark:border-blue-500 shadow-sm
-                              transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
-
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 flex items-center justify-center 
-                                  rounded-lg bg-blue-600/10">
-                    <Users className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                  </div>
-                  <div>
-                    <div className="text-2xl font-semibold text-gray-900 dark:text-gray-300"> 3 </div>
-                    <div className="text-sm text-gray-500"> Collaborators </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
+                        
           </div>
         </div>
 

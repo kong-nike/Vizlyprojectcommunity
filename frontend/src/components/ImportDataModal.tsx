@@ -233,7 +233,7 @@ export default function ImportDataModal({ onClose, onImport }: ImportDataModalPr
                       className={`p-3 rounded-xl border-2 transition-all hover:shadow-md ${
                         fileType === type.id
                           ? `${type.borderColor} ${type.bgColor}`
-                          : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900'
+                          : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 cursor-pointer'
                       }`}
                     >
                       <div className="flex flex-col items-center text-center space-y-1.5">
@@ -409,7 +409,7 @@ export default function ImportDataModal({ onClose, onImport }: ImportDataModalPr
           <div className="px-6 py-4 border-t border-gray-200 dark:border-gray-700 flex items-center justify-between">
             <button
               onClick={step === 1 ? onClose : () => setStep(1)}
-              className="px-6 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors flex items-center space-x-2"
+              className="px-6 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors flex items-center space-x-2 cursor-pointer"
             >
               {step === 1 ? (
                 <>
@@ -426,7 +426,7 @@ export default function ImportDataModal({ onClose, onImport }: ImportDataModalPr
 
             <button
               onClick={step === 1 ? handleStep1Next : handleImport}
-              className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all flex items-center space-x-2"
+              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:shadow-lg transition-all flex items-center space-x-2 cursor-pointer"
             >
               <span>{step === 1 && fileType !== 'excel' ? 'Import' : step === 1 ? 'Next' : 'Import'}</span>
               {step === 1 && fileType === 'excel' ? (

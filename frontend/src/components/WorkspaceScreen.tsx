@@ -92,32 +92,35 @@ export default function WorkspaceScreen({
   const [showNotifications, setShowNotifications] = useState(false);
 
   const createMenuRef = useRef<HTMLDivElement>(null);
+  const profileMenuRef = useRef<HTMLDivElement>(null);
 
   // Close create menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        createMenuRef.current &&
-        !createMenuRef.current.contains(event.target as Node)
-      ) {
-        setShowCreateMenu(false);
-      }
-    };
+// Profile menu - toggle & close on outside click
+useEffect(() => {
+  const handleClickOutside = (event: MouseEvent) => {
+    const target = event.target as Node;
 
-    if (showCreateMenu) {
-      document.addEventListener(
-        "mousedown",
-        handleClickOutside,
-      );
+    if (
+      profileMenuRef.current &&
+      !profileMenuRef.current.contains(target)
+    ) {
+      setShowProfileMenu(false);
     }
 
-    return () => {
-      document.removeEventListener(
-        "mousedown",
-        handleClickOutside,
-      );
-    };
-  }, [showCreateMenu]);
+    if (
+      createMenuRef.current &&
+      !createMenuRef.current.contains(target)
+    ) {
+      setShowCreateMenu(false);
+    }
+  };
+
+  document.addEventListener("pointerdown", handleClickOutside);
+
+  return () => {
+    document.removeEventListener("pointerdown", handleClickOutside);
+  };
+}, []);
 
   // All items combined - using state so we can delete items
   const [items, setItems] = useState(workspaceItems || [
@@ -127,7 +130,7 @@ export default function WorkspaceScreen({
       name: "E-commerce Sales Data",
       type: "Dataset",
       icon: Database,
-      color: "bg-emerald-500",
+      color: "bg-blue-500",
       rows: "15 rows",
       lastViewed: "5 min ago",
     },
@@ -138,7 +141,7 @@ export default function WorkspaceScreen({
       name: "Sales Performance Dashboard",
       type: "Dashboard",
       icon: BarChart3,
-      color: "bg-purple-500",
+      color: "bg-red-500",
       lastViewed: "10 min ago",
     },
 
@@ -148,7 +151,7 @@ export default function WorkspaceScreen({
       name: "Monthly Revenue Analysis",
       type: "Report",
       icon: FileText,
-      color: "bg-blue-500",
+      color: "bg-green-600",
       lastViewed: "15 min ago",
     },
     {
@@ -156,7 +159,7 @@ export default function WorkspaceScreen({
       name: "Category Growth Trends",
       type: "Report",
       icon: FileText,
-      color: "bg-emerald-500",
+      color: "bg-green-600",
       lastViewed: "20 min ago",
     },
     {
@@ -164,7 +167,7 @@ export default function WorkspaceScreen({
       name: "Product Performance Report",
       type: "Report",
       icon: FileText,
-      color: "bg-indigo-500",
+      color: "bg-green-600",
       lastViewed: "25 min ago",
     },
   ]);
@@ -294,7 +297,7 @@ export default function WorkspaceScreen({
     <div
       key={item.id}
       onClick={() => handleItemClick(item)}
-      className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer hover:-translate-y-1 group relative"
+      className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group"
     >
       {/* Colored Header Bar */}
       <div className={`h-2 ${item.color}`}></div>
@@ -303,7 +306,7 @@ export default function WorkspaceScreen({
         {/* Icon and Type Badge with Menu */}
         <div className="flex items-center justify-between mb-5">
           <div
-            className={`w-14 h-14 ${item.color} rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}
+            className={`w-14 h-14 ${item.color} rounded-xl flex items-center justify-center shadow-lg group-hover transition-transform`}
           >
             <item.icon className="w-7 h-7 text-white" />
           </div>
@@ -311,8 +314,9 @@ export default function WorkspaceScreen({
           <div className="flex items-center gap-2">
             {/* Type Badge */}
             <div className={`px-3 py-1 rounded-full text-xs ${
-              item.type === 'Dashboard' ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300' :
-              item.type === 'Report' ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300' :
+              item.type === 'Dashboard' ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300' :
+              item.type === 'Report' ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300' :
+              item.type === 'Dataset'? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300':
               'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300'
             }`}>
               {item.type}
@@ -375,13 +379,15 @@ export default function WorkspaceScreen({
         <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
           <div className="flex items-center space-x-2">
             <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-              item.type === 'Dashboard' ? 'bg-purple-100 dark:bg-purple-900/30' :
-              item.type === 'Report' ? 'bg-blue-100 dark:bg-blue-900/30' :
+              item.type === 'Dashboard' ? 'bg-red-100 dark:bg-red-900/30' :
+              item.type === 'Report' ? 'bg-green-100 dark:bg-green-900/30' :
+              item.type === 'Dataset'? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300':
               'bg-emerald-100 dark:bg-emerald-900/30'
             }`}>
               <Clock className={`w-4 h-4 ${
-                item.type === 'Dashboard' ? 'text-purple-600 dark:text-purple-400' :
-                item.type === 'Report' ? 'text-blue-600 dark:text-blue-400' :
+                item.type === 'Dashboard' ? 'text-red-600 dark:text-red-400' :
+                item.type === 'Report' ? 'text-green-600 dark:text-green-400' :
+                item.type === 'Dataset'? 'text-blue-600 dark:text-blue-400':
                 'text-emerald-600 dark:text-emerald-400'
               }`} />
             </div>
@@ -442,13 +448,17 @@ export default function WorkspaceScreen({
                 {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </button>
               
-              <div className="relative">
+              <div ref={profileMenuRef} className="relative">
                 <button 
-                  onClick={() => setShowProfileMenu(!showProfileMenu)}
+                  onClick={(e) => {
+                    e.stopPropagation(); // prevent outside click handler from firing
+                    setShowProfileMenu(!showProfileMenu); // toggle menu
+                  }}
                   className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
                 >
                   <User className="w-5 h-5" />
                 </button>
+
                 {showProfileMenu && (
                   <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 py-2 z-50">
                     <div className="px-4 py-2 border-b border-gray-200 dark:border-gray-700">
@@ -504,13 +514,13 @@ export default function WorkspaceScreen({
         >
           {/* Create Button Header */}
 <div className="p-4 border-b border-gray-200 dark:border-gray-700">
-  <div className="relative">
+  <div ref={createMenuRef} className="relative">
       <button
         onClick={(e) => {
           e.stopPropagation();
           setShowCreateMenu(!showCreateMenu);
         }}
-        className="w-full p-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all shadow-sm hover:shadow-md flex items-center justify-center"
+        className="w-full p-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all shadow-sm hover:shadow-md flex items-center justify-center cursor-pointer"
       >
         <Plus className="w-5 h-5" />
       </button>
@@ -518,18 +528,17 @@ export default function WorkspaceScreen({
       {/* Unified Dropdown Menu */}
       {showCreateMenu && (
         <div 
-          ref={createMenuRef}
-          className="absolute left-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 py-2 z-[9999]"
+          className="left-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 py-2 relative z-9999"
         >
           <button
             onClick={() => {
               onNavigate("builder");
               setShowCreateMenu(false);
             }}
-            className="w-full px-4 py-2.5 text-left text-gray-700 dark:text-gray-300 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors flex items-center space-x-3 group"
+            className="w-full px-4 py-2.5 text-left text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-purple-900/20 transition-colors flex items-center space-x-3 group cursor-pointer"
           >
-            <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center group-hover:bg-purple-200 dark:group-hover:bg-purple-900/50 transition-colors">
-              <BarChart3 className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+            <div className="w-8 h-8 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center group-hover:bg-orange-200 dark:group-hover:bg-orange-900/50 transition-colors">
+              <BarChart3 className="w-4 h-4 text-orange-600 dark:text-orange-400" />
             </div>
             <div>
               <p className="text-sm font-medium text-gray-900 dark:text-white">Create Dashboard</p>
@@ -542,10 +551,10 @@ export default function WorkspaceScreen({
               onNavigate("builder");
               setShowCreateMenu(false);
             }}
-            className="w-full px-4 py-2.5 text-left text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors flex items-center space-x-3 group"
+            className="w-full px-4 py-2.5 text-left text-gray-700 dark:text-gray-300 hover:bg-green-50 dark:hover:bg-blue-900/20 transition-colors flex items-center space-x-3 group cursor-pointer"
           >
-            <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center group-hover:bg-blue-200 dark:group-hover:bg-blue-900/50 transition-colors">
-              <PieChart className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+            <div className="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center group-hover:bg-green-200 dark:group-hover:bg-green-900/50 transition-colors">
+              <PieChart className="w-4 h-4 text-green-600 dark:text-green-400" />
             </div>
             <div>
               <p className="text-sm font-medium text-gray-900 dark:text-white">Create Report</p>
@@ -558,10 +567,10 @@ export default function WorkspaceScreen({
               setShowImportDataModal(true);
               setShowCreateMenu(false);
             }}
-            className="w-full px-4 py-2.5 text-left text-gray-700 dark:text-gray-300 hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors flex items-center space-x-3 group"
+            className="w-full px-4 py-2.5 text-left text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-green-900/20 transition-colors flex items-center space-x-3 group cursor-pointer"
           >
-            <div className="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center group-hover:bg-green-200 dark:group-hover:bg-green-900/50 transition-colors">
-              <Upload className="w-4 h-4 text-green-600 dark:text-green-400" />
+            <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center group-hover:bg-blue-200 dark:group-hover:bg-blue-900/50 transition-colors">
+              <Upload className="w-4 h-4 text-blue-600 dark:text-blue-400" />
             </div>
             <div>
               <p className="text-sm font-medium text-gray-900 dark:text-white">Import Data</p>
@@ -580,7 +589,7 @@ export default function WorkspaceScreen({
                 key={index}
                 onClick={() => setActiveView(item.filter)}
                 title={item.label}
-                className={`w-full flex items-center justify-center p-2.5 rounded-lg transition-colors group ${
+                className={`w-full flex items-center justify-center p-2.5 rounded-lg transition-colors group cursor-pointer ${
                   activeView === item.filter
                     ? "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400"
                     : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -616,7 +625,7 @@ export default function WorkspaceScreen({
             <aside className="absolute left-0 top-0 bottom-0 w-64 bg-white dark:bg-gray-800 shadow-xl">
               <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
                 <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                     <Grid3x3 className="w-5 h-5 text-white" />
                   </div>
                   <span className="text-gray-900 dark:text-white">
@@ -676,8 +685,8 @@ export default function WorkspaceScreen({
 
               {/* Quick Stats Cards */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                <div className="relative inline-block">
-                  <div className="relative bg-white dark:bg-gray-800 dark:border-blue-500 rounded-2xl px-6 py-4 border border-blue-500 dark:border-blue-400 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                <div className=" inline-block">
+                  <div className=" bg-white dark:bg-gray-800 rounded-2xl px-6 py-4 border border-blue-500 dark:border-blue-500 shadow-sm transition-all duration-300 hover:shadow-md">
                     <div className="flex items-center gap-4">
                       <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-blue-600/10">
                         <BarChart3 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
@@ -691,8 +700,8 @@ export default function WorkspaceScreen({
                 </div>
 
 
-                <div className="relative inline-block">
-                  <div className="relative bg-white dark:bg-gray-800 dark:border-blue-500 rounded-2xl px-6 py-4 border border-blue-500 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                <div className=" inline-block">
+                  <div className=" bg-white dark:bg-gray-800 dark:border-blue-500 rounded-2xl px-6 py-4 border border-blue-500 shadow-sm transition-all duration-300 hover:shadow-md">
                     <div className="flex items-center gap-4">
                       <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-blue-600/10 ">
                         <FileText className="w-5 h-5 text-blue-600 dark:text-blue-400" />
@@ -705,8 +714,8 @@ export default function WorkspaceScreen({
                   </div>
                 </div>
 
-                <div className="relative inline-block">
-                  <div className="relative bg-white dark:bg-gray-800 dark:border-blue-500 rounded-2xl px-6 py-4 border border-blue-500 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                <div className=" inline-block">
+                  <div className=" bg-white dark:bg-gray-800 dark:border-blue-500 rounded-2xl px-6 py-4 border border-blue-500 shadow-sm transition-all duration-300 hover:shadow-md">
                     <div className="flex items-center gap-4">
                       <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-blue-600/10">
                         <Database className="w-5 h-5 text-blue-600 dark:text-blue-400" />
@@ -728,11 +737,11 @@ export default function WorkspaceScreen({
                 {getGroupedItems().dashboards.length > 0 && (
                   <div>
                     <div className="flex items-center space-x-2 mb-4">
-                      <BarChart3 className="w-5 h-5 text-purple-600 dark:text-purple-400" />
-                      <h2 className="text-gray-900 dark:text-white">
+                      <BarChart3 className="w-5 h-5 text-orange-600 dark:text-orange-400 " />
+                      <h2 className="text-gray-900 text-orange-600 dark:text-orange-400">
                         Dashboards
                       </h2>
-                      <span className="px-2 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded text-sm">
+                      <span className="px-2 py-0.5 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded text-sm">
                         {getGroupedItems().dashboards.length}
                       </span>
                     </div>
@@ -748,11 +757,11 @@ export default function WorkspaceScreen({
                 {getGroupedItems().reports.length > 0 && (
                   <div>
                     <div className="flex items-center space-x-2 mb-4">
-                      <FileText className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                      <h2 className="text-gray-900 dark:text-white">
+                      <FileText className="w-5 h-5 text-green-600 dark:text-green-400" />
+                      <h2 className="text-green-600 dark:text-green-400">
                         Reports
                       </h2>
-                      <span className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded text-sm">
+                      <span className="px-2 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded text-sm">
                         {getGroupedItems().reports.length}
                       </span>
                     </div>
@@ -768,11 +777,11 @@ export default function WorkspaceScreen({
                 {getGroupedItems().datasets.length > 0 && (
                   <div>
                     <div className="flex items-center space-x-2 mb-4">
-                      <Database className="w-5 h-5 text-green-600 dark:text-green-400" />
-                      <h2 className="text-gray-900 dark:text-white">
+                      <Database className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      <h2 className="text-blue-600 dark:text-blue-400">
                         Datasets
                       </h2>
-                      <span className="px-2 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded text-sm">
+                      <span className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded text-sm">
                         {getGroupedItems().datasets.length}
                       </span>
                     </div>

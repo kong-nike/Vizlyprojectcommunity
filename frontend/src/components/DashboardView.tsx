@@ -52,7 +52,7 @@ const DraggableDashboardItem = ({ item, onQuickAdd }: { item: DashboardItem; onQ
       title="Drag to canvas or double-click to quick add"
     >
       <div className="flex items-center space-x-3">
-        <div className={`w-10 h-10 ${item.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
+        <div className={`w-10 h-10 ${item.color} rounded-lg flex items-center justify-center shrink-0`}>
           <item.icon className="w-5 h-5 text-white" />
         </div>
         <div className="flex-1 min-w-0">
